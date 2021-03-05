@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba</title>
+</head>
+<body>
+    
+    <div id="app">
+        
+        <h1>{{titulo1}}</h1>
+        
+        <p><label>Código: <input type="text" v-model="codigo"></label></p>
+        <p><label>Detalle: <input type="text" v-model="detalle"></label></p>
+        <p><label>Precio: <input type="text" v-model="precio"></label></p>
+        <button @click="agregarProd">Agregar</button>
+        
+        <br>
+        <hr>
+        
+        <h3>{{titulo2}}</h3>
+        <p>Ingrese el código de producto a eliminar:</p>
+        <p><label>Código: <input type="text" v-model="delCode"></label></p>
+        <button @click="quitarProd">Eliminar</button>
+        
+        <br>
+        <hr>
+        
+        <h3>{{titulo3}}</h3>
+        <span v-if="listaProd.length === 0">No hay productos en la lista"</span>
+        <ul>
+            <li v-for="prod of listaProd">
+                {{prod.codigo}} - {{prod.detalle}} - {{prod.precio}} 
+            </li>
+        </ul>
+        
+        <br>
+        <hr>
+        
+        <label>Aplicar descuento: <input type="text" v-model="desc"></label>
+        <button @click="aplicarDesc">Aplicar</button>
+        <h3>Precio total = ${{total}}</h3>
+        
+    </div>
+    
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
